@@ -1,0 +1,50 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <img id="burger-picture" src="http://smokeybones.com/wp-content/uploads/2015/11/smokehouse-burger.jpg" alt="Awesome burger">
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">
+
+        {{#each burgers}}
+            {{#if devoured}}
+            {{else}}
+            <p>
+                {{id}}. {{burger_name}}
+                <button id="burger-{{id}}" class="burger btn btn-info btn-sm" data-id="{{id}}" data-dev="{{devoured}}">Chomp!</button>
+            </p>
+            {{/if}}
+        {{/each}}
+        </div>
+        {{!--<div class="col-sm-4" style="background-color:lavenderblush;">
+
+            <input id="burger-name" type="input" placeholder="Enter a burger name"></input>
+            <button id="add-burger" class="btn btn-info">Add the burger to my plate.</button>
+
+        </div>--}}
+
+        <div class="col-sm-4">
+        <h2>Add your own</h2>
+        <p>Enter your favorite burger below and hit enter to add it to the menu.</p>
+        <form>
+            <div class="form-group">
+            <label for="usr">Burger Name:</label>
+            <input type="text" class="form-control" id="burger-name">
+            </div>
+        </form>
+        </div>
+
+        <div class="col-sm-4" style="background-color:lavender;">
+        {{#each burgers}}
+            {{#if devoured}}
+            <p>
+                {{id}}. {{burger_name}}
+            </p>
+            {{else}}
+            {{/if}}
+        {{/each}}
+        </div>
+    </div>
+</div>
