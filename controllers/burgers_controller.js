@@ -16,7 +16,7 @@ function ormInit( db ) {
 	
 	// The main url to display the page.
 	app.get( "/", function( req, res ) {
-	    db.burgers.findAll({})
+	    db.burger2.findAll({})
 	    .then( function( burgers ) { 
 	        //console.log( burgers );
 	        res.render( "index", { "burgers": burgers } )
@@ -27,7 +27,7 @@ function ormInit( db ) {
 	app.post( "/api/chomp/:id", function( req, res ) {
 	    // console.log( "Chomp: ", req.url );
 	    // console.log( req.params );
-	    db.burgers.update( 
+	    db.burger2.update( 
                 { "devoured": 1 }, 
                 { where: {"id": req.params.id  } } 
         )
@@ -41,7 +41,7 @@ function ormInit( db ) {
 	app.post( "/api/add/:name", function( req, res ) {
 	    console.log( req.params );
 	    // db.insertOne( { "burger_name": req.params.name, "devoured": 0 })
-	    db.burgers.create( { "burger_name": req.params.name, "devoured": 0 })
+	    db.burger2.create( { "burger_name": req.params.name, "devoured": 0 })
 	    .then( (resp ) => {
 	        console.log( "redirecting to /" );
 	        res.redirect( "/" );
